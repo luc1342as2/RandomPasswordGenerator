@@ -1,20 +1,125 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Generate a Random password.</title>
+    <title>Secure Random Password Generator</title>
+    <meta name="description" content="Generate strong, random passwords instantly. Choose length, character types, and copy your secure password with a single click.">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="container">
-    <h1>Generate <br><span>Random Password</span></h1>
-    <div class="display">
-        <input type="text" id="password" placeholder="Password">
-        <img src="images/copy.png" onclick="copyPassword()">
-    </div>
-    <button onclick="createPassword()"><img src="images/generate.png">Generate Password</button>
-</div>
+    <header class="site-header">
+        <div class="container">
+            <h1 class="logo">Secure <span>Password Generator</span></h1>
+            <p class="tagline">Create strong, unique passwords in seconds.</p>
+        </div>
+    </header>
 
-<script src="javascript.js"></script>
+    <main class="page-main">
+        <section class="generator-section">
+            <div class="container generator-container">
+                <div class="generator-card">
+                    <h2 class="section-title">Generate a random password</h2>
+                    <p class="section-subtitle">
+                        Customize the options below, then click **Generate password** to get a new secure password you can use anywhere.
+                    </p>
+
+                    <div class="display">
+                        <input type="text" id="password" placeholder="Your secure password will appear here" readonly>
+                        <button class="icon-button" type="button" aria-label="Copy password" onclick="copyPassword()">
+                            Copy
+                        </button>
+                    </div>
+
+                    <div class="options-grid">
+                        <div class="option-row option-row--wide">
+                            <label for="lengthRange" class="option-label">
+                                Password length
+                                <span class="length-value" id="lengthValue">12</span>
+                            </label>
+                            <input type="range" id="lengthRange" min="8" max="64" value="12">
+                            <div class="range-scale">
+                                <span>8</span>
+                                <span>24</span>
+                                <span>40</span>
+                                <span>64</span>
+                            </div>
+                        </div>
+
+                        <div class="option-row">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="includeUppercase" checked>
+                                <span>Include uppercase letters (A-Z)</span>
+                            </label>
+                        </div>
+                        <div class="option-row">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="includeLowercase" checked>
+                                <span>Include lowercase letters (a-z)</span>
+                            </label>
+                        </div>
+                        <div class="option-row">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="includeNumbers" checked>
+                                <span>Include numbers (0-9)</span>
+                            </label>
+                        </div>
+                        <div class="option-row">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="includeSymbols" checked>
+                                <span>Include symbols (!@#$...)</span>
+                            </label>
+                        </div>
+                        <div class="option-row">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="requireEachType" checked>
+                                <span>Require at least one of each selected type</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="generator-footer">
+                        <div class="strength-indicator">
+                            <span class="strength-label">Estimated strength:</span>
+                            <span class="strength-value" id="strengthValue">Medium</span>
+                        </div>
+                        <button class="primary-button" type="button" onclick="createPassword()">
+                            Generate password
+                        </button>
+                    </div>
+
+                    <p class="helper-text">
+                        Tip: Use a unique password for every account. Store them securely in a password manager instead of trying to memorize all of them.
+                    </p>
+                </div>
+
+                <aside class="info-card">
+                    <h2>Why strong passwords matter</h2>
+                    <p>
+                        Weak or reused passwords are one of the most common ways attackers gain access to online accounts.
+                        A strong password is long, random, and hard to guess.
+                    </p>
+                    <ul>
+                        <li>Use at least 12–16 characters.</li>
+                        <li>Mix letters, numbers, and symbols.</li>
+                        <li>Avoid personal information or dictionary words.</li>
+                        <li>Never reuse the same password across sites.</li>
+                    </ul>
+                    <p class="disclaimer">
+                        This tool generates passwords locally in your browser. No data is sent or stored on any server.
+                    </p>
+                </aside>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2023 Secure Password Generator by Lucas Ghigli. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="javascript.js"></script>
 </body>
 </html>
+
